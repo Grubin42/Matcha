@@ -8,7 +8,14 @@
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.1.0" />
-    <Compile Include="../Core/Models/User.cs" />
-    <Compile Include="../Infrastructure/Services/UserService.cs" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0" />
+    <!-- Ajoutez d'autres références de packages si nécessaire -->
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

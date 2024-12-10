@@ -1,6 +1,7 @@
 using System.Data;
 using MySql.Data.MySqlClient;
 using MyApp.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace MyApp.Services;
 

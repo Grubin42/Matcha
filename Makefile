@@ -46,4 +46,13 @@ rebuild-no-cache:
 	@${DOCKER} build --no-cache
 	@${DOCKER} up -d --remove-orphans --build
 
-.PHONY: all start up down stop rebuild delete rebuild-no-cache
+dev:
+	@echo "${GREEN}Starting development environment with Hot Reload...${RESET}"
+	@${DOCKER} up --build
+
+# Commande pour arrêter le développement
+dev-down:
+	@echo "${RED}Stopping development environment...${RESET}"
+	@${DOCKER} down
+
+.PHONY: all start up down stop rebuild delete rebuild-no-cache dev dev-down

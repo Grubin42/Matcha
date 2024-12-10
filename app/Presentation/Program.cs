@@ -1,11 +1,16 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.DataProtection;
 using MyApp.Data;
 using MyApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configuration de la protection des données pour utiliser un répertoire persistant
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo("/root/.aspnet/DataProtection-Keys"))
+    .SetApplicationName("MatchaApp");
 
 // Charger les variables d'environnement
 builder.Configuration.AddEnvironmentVariables();
@@ -28,7 +33,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 
