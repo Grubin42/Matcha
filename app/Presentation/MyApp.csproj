@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.1.0" />
+    <Compile Include="../Core/Models/User.cs" />
+    <Compile Include="../Infrastructure/Services/UserService.cs" />
+  </ItemGroup>
 </Project>

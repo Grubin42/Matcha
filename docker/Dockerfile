@@ -1,8 +1,10 @@
 # Build stage
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /source
-COPY ./app/Presentation ./
-RUN dotnet publish -c Release -o /app
+COPY ./app/Core ./Core
+COPY ./app/Infrastructure ./Infrastructure
+COPY ./app/Presentation ./Presentation
+RUN dotnet publish ./Presentation/MyApp.csproj -c Release -o /app
 
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0

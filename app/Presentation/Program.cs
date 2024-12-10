@@ -1,8 +1,14 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.Extensions.Configuration;
 using MyApp.Data;
+using MyApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+// Charger les variables d'environnement
+builder.Configuration.AddEnvironmentVariables();
 
 builder.WebHost.UseUrls("http://0.0.0.0:5000");
 
@@ -10,6 +16,7 @@ builder.WebHost.UseUrls("http://0.0.0.0:5000");
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddSingleton<UserService>();
 
 var app = builder.Build();
 
